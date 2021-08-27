@@ -12,7 +12,11 @@ const client = new ApolloClient({
 
     operation.setContext({
       headers: {
-        authorization: token ? `Bearer ${token}` : ""
+        authorization: token ? `Bearer ${token}` : "",
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Credentials': true
+    
       }
     })
   },
