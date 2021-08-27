@@ -4,7 +4,7 @@ const { AuthenticationError } = require('apollo-server-express');
 
 const resolvers = {
   Query: {
-    user2: async (parent, args, context) => {
+    user: async (parent, args, context) => {
          if(context.user) {
          const data = await User.findOne({ _id: context.user._id })
         .select('-__v -password')
@@ -18,7 +18,7 @@ const resolvers = {
 
   Mutation: {
 
-    login: async (parent, { email, password }) => {
+    LOGIN_USER: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
 
       if (!user) {
@@ -33,13 +33,13 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    create: async (parent, args) => {
+    ADD_USER: async (parent, args) => {
         const user = await User.create(args);
         const token = signToken(user);
         return { token, user };
       },
   
-    updatebook: async (parent, { input }, context)=> {
+    SAVE_BOOK: async (parent, { input }, context)=> {
       if (context.user) {
         const updated = await User.findByIdAndUpdate(
           { _id: context.user._id },
@@ -51,7 +51,7 @@ const resolvers = {
       throw new AuthenticationError('Please log in.')
     },
 
-    remove: async (parent, args, context) => {
+    DELETE_BOOK: async (parent, args, context) => {
       if (context.user) {
         const updated = await User.findOneAndUpdate(
           { _id: context.user._id },
