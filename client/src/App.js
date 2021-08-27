@@ -20,7 +20,7 @@ const client = new ApolloClient({
       }
     })
   },
-  uri: 'https://booksearchgql.herokuapp.com//graphql'
+  uri: 'https://www.booksearchgql.herokuapp.com//graphql'
 });
 
 
