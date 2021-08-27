@@ -5,7 +5,7 @@ import { getuser, REMOVE_BOOK } from '../utils/API';
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
 import { useQuery, useMutation } from "@apollo/react-hooks";
-import { REMOVE_BOOK } from "../utils/mutations";
+/* import { REMOVE_BOOK } from "../utils/mutations"; */
 import { user } from "../utils/queries";
 
 /* const [remove, { error }] = useMutation(deletebook);
