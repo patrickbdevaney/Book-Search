@@ -43,7 +43,7 @@ const SignupForm = () => {
       setShowAlert(true);
     }
 
-    /* try {
+    try {
       const response = await createUser(userFormData);
 
       if (!response.ok) {
@@ -56,7 +56,7 @@ const SignupForm = () => {
     } catch (err) {
       console.error(err);
       setShowAlert(true);
-    } */
+    }
 
     setUserFormData({
       username: '',
